@@ -1,1 +1,81 @@
-🎹 Toy Piano - Module Project IIIWelcome to the Toy Piano project repository!This project was developed by Group 15 for the Department of Electrical-Electronics Engineering at Sivas Science and Technology University.Our goal was to design and implement a simple yet functional "Toy Piano" capable of generating distinct musical tones using analog circuitry and signal processing concepts.👥 Project Team (Group 15)|| Name | ID | Role || Kaan Özkan | 230202073 | Circuit Theory, Design, Proteus Simulation || Erkut Doğan | 240201044 | Electronics Design, Circuit Setup || Furkan Hatipoğulları | 220202015 | Signals & Systems, MATLAB Analysis, Reporting |Advisor: Dr. Ass. Sıtkı AkkayaDate: 26.12.2025📖 Project OverviewIn this project, we designed a circuit to generate musical notes (Do, Re, Mi, Fa, Sol, La, Si, Do) within one octave. The core of the system is a 555 Timer IC configured in Astable Multivibrator mode.Key Features:Tone Generation: Square-wave signal generation using a 555 Timer.Frequency Control: A resistor ladder network controlled by push buttons to change the oscillation frequency (musical notes).Amplification: A Class B Push-Pull (Complementary Symmetry) amplifier (using TIP31/TIP32 transistors) to drive the speaker.Simulation: Validated using Proteus (for circuit logic) and MATLAB (for signal analysis).🛠️ Circuit Design & Theory1. The Oscillator (555 Timer)We used the standard astable frequency formula:$$f = \frac{1.44}{(R_1 + 2R_2) \cdot C}$$C: 100nF (constant)R1: 1kΩ (constant)R2: Variable resistance determined by the button pressed.2. Frequency Table & Error RatesWe calculated the theoretical values vs. the measured values. Here is a summary of our results:| Button | Note | Theoretical Freq (Hz) | Measured Freq (Hz) | Error (%) || 1 | Fa 5 | 698 | 685.7 | 1.83% || 2 | Mi 5 | 659 | 644.0 | 2.31% || 3 | Re 5 | 587 | 571.0 | 2.78% || 4 | Do 5 | 523 | 511.0 | 2.34% || 5 | La 4 | 440 | 444.0 | 0.91% || 6 | G# 4 | 415 | 419.0 | 0.89% || 7 | F# 4 | 370 | 369.0 | 0.27% || 8 | Mi 4 | 330 | 328.0 | 0.49% |3. AmplificationSince the 555 timer cannot drive an 8Ω speaker directly with high quality, we implemented a Push-Pull Amplifier stage to act as a current buffer, ensuring the speaker operates safely.💻 SimulationsMATLAB AnalysisWe modeled the discrete-time signal and compared the oscilloscope measurements with theoretical waves.You can run the analysis using the file: toy_piano_analysis.mProteus CircuitThe circuit schematic includes:Button array for note selection.Resistor ladder.555 Timer IC.Push-pull amplifier stage.Speaker (modeled as RL load).(Screenshots of the simulations can be found in the docs/ folder or the project report).🚀 How to RunMATLAB: Open toy_piano_analysis.m in MATLAB and run it to see the waveform plots and frequency calculations.Proteus: Load the .pdsprj file (if available) to simulate the live circuit.Real Life: Assemble the circuit on a breadboard using the component values listed in the report.📄 License & DisclaimerThis project is for educational purposes as part of the Module Project III course.All rights reserved by Group 15 and Sivas Science and Technology University.
+Toy Piano Using 555 Timer IC
+
+This repository contains the complete design, analysis, and simulation files of the Toy Piano project developed as part of Module Project III in the Electrical and Electronics Engineering Department at Sivas Science and Technology University.
+
+The project focuses on generating musical tones using a 555 timer configured in astable mode and driving a small loudspeaker through a push-pull amplifier stage.
+
+
+Project Overview
+
+The Toy Piano system generates different musical notes when push buttons are pressed. Each button selects a specific resistance value, which changes the oscillation frequency of the 555 timer. The output signal is a square wave operating in the audio frequency range.
+
+Since the 555 timer cannot directly drive a low-impedance speaker, a complementary push-pull amplifier stage is used to provide sufficient current while maintaining signal integrity.
+
+
+Theoretical Background
+
+- Electronics:
+  - 555 timer internal structure and astable operation  
+  - Push-pull amplifier design  
+
+- Circuit Theory II:
+  - RC-based frequency derivation  
+  - Speaker modeled as a series RL load  
+  - Transient and steady-state analysis  
+
+- Signals and Systems: 
+  - Discrete-time modeling of square wave signals  
+  - Harmonic analysis using Fourier series  
+  - Speaker treated as a linear time-invariant (LTI) system  
+
+
+ Simulations and Tools
+
+- Proteus: 
+  Used for circuit design, frequency verification, and oscilloscope measurements.
+
+- MATLAB:
+  Used to generate discrete-time square wave signals and compare theoretical results with experimental measurements.
+
+
+ Repository Structure
+
+- `Report/`  
+  Final project report in PDF format.
+
+- `Circuit/`  
+  Proteus schematic files and circuit diagrams.
+
+- `MATLAB/`  
+  MATLAB code used for signal generation and analysis.
+
+- `Images/`  
+  Screenshots from oscilloscope and Proteus simulations.
+
+- `References/`  
+  Datasheets and reference materials used in the project.
+
+---
+
+ Project Team
+
+- Kaan Özkan – Circuit theory analysis, Proteus simulation, report editing  
+- Erkut Doğan – Electronics design and physical circuit setup  
+- Furkan Hatipoğulları – Signals and systems analysis, MATLAB modeling  
+
+Academic Advisor: 
+Dr. Ass. Sıtkı Akkaya
+
+
+ Conclusion
+
+This project successfully demonstrates how theoretical concepts from electronics, circuit analysis, and signal processing can be integrated into a practical audio system. The close agreement between theoretical calculations, MATLAB simulations, Proteus results, and experimental measurements validates the correctness of the design.
+
+
+References
+
+- Wikipedia – 555 Timer IC  
+- Sedra & Smith, *Microelectronic Circuits*  
+- Oppenheim & Willsky, *Signals and Systems*  
+- MATLAB Documentation
+
